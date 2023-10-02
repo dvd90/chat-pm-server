@@ -5,7 +5,7 @@ import { handleError, route } from '../decorators';
 import { Routable } from '../routes/routable';
 import ChatBotConnector, { ChatBase } from '../handlers/chat-base';
 import { Spec } from '../models';
-import { log } from 'console';
+
 // noinspection JSUnusedGlobalSymbols
 export class ChatBotController extends Routable {
   constructor() {
@@ -21,8 +21,6 @@ export class ChatBotController extends Routable {
     } = req;
 
     const spec = await Spec.findOne({ spec_id: specId }).lean();
-
-    log(spec);
 
     if (spec) {
       return res.ok({
