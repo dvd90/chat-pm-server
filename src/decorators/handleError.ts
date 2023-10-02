@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { ExpressRoute, ICustomRequest, indexedObject } from '../utils';
 import express from 'express';
 /***
@@ -24,6 +25,7 @@ export function handleError(): (
       try {
         return await originalFunction(req, res);
       } catch (error) {
+        log(error);
         return resHandler.error(error);
       }
     };
