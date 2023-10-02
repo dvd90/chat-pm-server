@@ -1,5 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const chalk = require('chalk');
+let chalk_1;
+import('chalk')
+  .then((chalk) => {
+    chalk_1 = chalk.default || chalk;
+    // Your code that uses chalk_1 goes here
+  })
+  .catch((error) => {
+    // Handle the error if the import fails
+    console.error(error);
+  });
 
 import * as Sentry from '@sentry/node';
 import { LeanRequest } from './interfaces';
@@ -26,19 +34,19 @@ if (!('toJSON' in Error.prototype))
 export const { log, error } = console;
 
 export function logDanger(content: string): void {
-  log(chalk.red.bold(content));
+  log(chalk_1?.red?.bold(content) || content);
 }
 
 export function logWarning(content: string): void {
-  log(chalk.yellow.bold(content));
+  log(chalk_1?.yellow?.bold(content) || content);
 }
 
 export function logSuccess(content: string): void {
-  log(chalk.green.bold(content));
+  log(chalk_1?.green?.bold(content) || content);
 }
 
 export function logPrimary(content: string): void {
-  log(chalk.blue.bold(content));
+  log(chalk_1?.blue?.bold(content) || content);
 }
 
 export function logConsole(content: unknown): void {
