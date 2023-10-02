@@ -5,7 +5,7 @@ export default {
   clearMocks: true,
   // collectCoverage: true,
   verbose: true,
-  setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.js'],
+  // setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.js'],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   // coverageThreshold: {
