@@ -1,2 +1,3 @@
 export * from './Status.controller';
-export * from './ChatBot.controller';
+
+export * from './Chatbot.controller';
